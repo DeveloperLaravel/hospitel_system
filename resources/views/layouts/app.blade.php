@@ -34,96 +34,58 @@
          x-transition>
     </div>
 
-    <!-- Sidebar -->
-    <aside
-        :class="open ? 'translate-x-0' : '-translate-x-full'"
-        class="fixed lg:static z-40 inset-y-0 left-0 w-64
-               bg-white dark:bg-gray-800 shadow-lg
-               transform lg:translate-x-0
-               transition-transform duration-300 ease-in-out">
+<aside
+    :class="open ? 'translate-x-0' : '-translate-x-full'"
+    class="fixed lg:static z-40 inset-y-0 left-0 w-64
+           bg-white dark:bg-gray-800 shadow-lg
+           transform lg:translate-x-0
+           transition-transform duration-300 ease-in-out">
 
-        <div class="p-4 font-bold text-red-600 text-lg border-b dark:border-gray-700">
-            🏥 المستشفى
-        </div>
+    <div class="p-4 font-bold text-red-600 text-lg border-b dark:border-gray-700">
+        🏥 المستشفى
+    </div>
 
-      <nav
-     class="space-y-2 px-3 py-4">
+    <nav class="space-y-2 px-3 py-4">
 
-    <!-- Dark Mode Button -->
-   <button
-    @click="
-        darkMode = !darkMode;
-        document.documentElement.classList.toggle('dark', darkMode);
-        localStorage.setItem('dark', darkMode);
-    "
-    class="w-full flex items-center gap-3 p-2 rounded-lg
-           bg-gray-100 dark:bg-gray-700
-           hover:bg-red-100 dark:hover:bg-gray-600
-           transition font-semibold"
->
-    <span x-text="darkMode ? '☀️' : '🌙'"></span>
-    <span x-text="darkMode ? 'الوضع النهاري' : 'الوضع الليلي'"></span>
-</button>
-
-    <!-- Dashboard -->
-    <a href="/dashboard"
-       class="flex items-center gap-3 p-2 rounded-lg
-              hover:bg-red-100 dark:hover:bg-gray-700
-              transition transform hover:scale-[1.02]">
-        📊
-        <span>Dashboard</span>
-    </a>
-
-    <!-- Doctors -->
-    <a href="/doctors"
-       class="flex items-center gap-3 p-2 rounded-lg
-              hover:bg-red-100 dark:hover:bg-gray-700
-              transition transform hover:scale-[1.02]">
-        👨‍⚕️
-        <span>الأطباء</span>
-    </a>
-
-    <!-- Patients -->
-    <a href="/patients"
-       class="flex items-center gap-3 p-2 rounded-lg
-              hover:bg-red-100 dark:hover:bg-gray-700
-              transition transform hover:scale-[1.02]">
-        🧑‍🦽
-        <span>المرضى</span>
-    </a>
-
-    <!-- Appointments -->
-    <a href="/appointments"
-       class="flex items-center gap-3 p-2 rounded-lg
-              hover:bg-red-100 dark:hover:bg-gray-700
-              transition transform hover:scale-[1.02]">
-        📅
-        <span>المواعيد</span>
-    </a>
-    <!-- Profile -->
-    <a href="{{ route('profile.edit') }}"
-       class="flex items-center gap-3 p-2 rounded-lg
-              hover:bg-red-100 dark:hover:bg-gray-700
-              transition transform hover:scale-[1.02]">
-        👤
-        <span>الملف الشخصي</span>
-    </a>
-
-    <!-- Logout -->
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit"
+        <!-- Dark Mode Button -->
+        <button
+            @click="
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark', darkMode);
+                localStorage.setItem('dark', darkMode);
+            "
             class="w-full flex items-center gap-3 p-2 rounded-lg
-                   hover:bg-red-100 dark:hover:bg-gray-700
-                   transition transform hover:scale-[1.02] text-left">
-            🚪
-            <span>تسجيل الخروج</span>
+                   bg-gray-100 dark:bg-gray-700
+                   hover:bg-red-100 dark:hover:bg-gray-600
+                   transition font-semibold"
+        >
+            <span x-text="darkMode ? '☀️' : '🌙'"></span>
+            <span x-text="darkMode ? 'الوضع النهاري' : 'الوضع الليلي'"></span>
         </button>
-    </form>
 
-</nav>
+        <!-- Dynamic Menu Links -->
+@foreach(config('menu') as $item)
+    @if(!$item['permission'] || auth()->user()->can($item['permission']))
+        <x-nav-link :route="$item['route']" :icon="$item['icon']" :label="$item['label']"/>
+    @endif
+@endforeach
 
-    </aside>
+
+        <!-- Logout -->
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit"
+                class="w-full flex items-center gap-3 p-2 rounded-lg
+                       hover:bg-red-100 dark:hover:bg-gray-700
+                       transition transform hover:scale-[1.02] text-left">
+                🚪
+                <span>تسجيل الخروج</span>
+            </button>
+        </form>
+
+    </nav>
+</aside>
+
 
 
     <!-- Content -->
