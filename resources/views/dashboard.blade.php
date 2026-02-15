@@ -1,17 +1,46 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <x-stat-card title="المرضى" value="1200" icon="🧑‍🦽"/>
+    <x-stat-card title="الأطباء" value="75" icon="👨‍⚕️"/>
+    <x-stat-card title="المواعيد" value="320" icon="📅"/>
+    <x-stat-card title="الأقسام" value="10" icon="🏢"/>
+
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
+        <canvas id="appointmentsChart"></canvas>
     </div>
+
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
+        <canvas id="patientsChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+new Chart(document.getElementById('appointmentsChart'), {
+    type: 'bar',
+    data: {
+        labels: ['السبت','الأحد','الإثنين','الثلاثاء'],
+        datasets: [{ data: [12,19,8,15] }]
+    }
+});
+
+new Chart(document.getElementById('patientsChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['رجال','نساء','أطفال'],
+        datasets: [{ data: [40,35,25] }]
+    }
+});
+</script>
+
+
 </x-app-layout>
