@@ -3,9 +3,9 @@
     <div class="mb-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold">Rooms</h1>
         @role('admin')
-            <x-link href="{{ route('rooms.create') }}" class="bg-blue-600 text-white">
+            <a href="{{ route('rooms.create') }}" class="bg-blue-600 text-white">
                 + Add Room
-            </x-link>
+            </a>
         @endrole
     </div>
 
@@ -14,7 +14,6 @@
     @endif
 
     <x-table>
-        <x-slot name="head">
             <tr>
                 <th>#</th>
                 <th>Room Number</th>
@@ -22,9 +21,7 @@
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
-        </x-slot>
 
-        <x-slot name="body">
             @forelse($rooms as $room)
                 <tr>
                     <td>{{ $room->id }}</td>
@@ -36,9 +33,9 @@
                         </span>
                     </td>
                     <td class="space-x-2">
-                        <x-link href="{{ route('rooms.show', $room) }}" class="bg-green-400 text-white">View</x-link>
+                        <a href="{{ route('rooms.show', $room) }}" class="bg-green-400 text-white">View</a>
                         @role('admin')
-                            <x-link href="{{ route('rooms.edit', $room) }}" class="bg-yellow-400 text-white">Edit</x-link>
+                            <a href="{{ route('rooms.edit', $room) }}" class="bg-yellow-400 text-white">Edit</a>
                             <form action="{{ route('rooms.destroy', $room) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure?');">
                                 @csrf
                                 @method('DELETE')
@@ -52,7 +49,6 @@
                     <td colspan="5" class="text-center p-4">No rooms found.</td>
                 </tr>
             @endforelse
-        </x-slot>
     </x-table>
 
     <div class="mt-4">

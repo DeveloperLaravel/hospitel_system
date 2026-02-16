@@ -35,7 +35,7 @@ Route::get('/', function () {
 // Route::get('/dashboard', [DashboardController::class,'index'])
 //     ->middleware(['auth'])
 //     ->name('dashboard');
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     // Dashboard عام للجميع
     Route::get('/dashboard', function () {

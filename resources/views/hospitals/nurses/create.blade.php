@@ -22,7 +22,7 @@
 
         <div class="flex space-x-2 mt-4">
             <x-button type="submit" class="bg-blue-600 text-white">{{ isset($nurse) ? 'Update' : 'Save' }}</x-button>
-            <x-link href="{{ route('nurses.index') }}" class="bg-gray-400 text-white">Cancel</x-link>
+            <a href="{{ route('nurses.index') }}" class="bg-gray-400 text-white">Cancel</a>
         </div>
     </form>
 

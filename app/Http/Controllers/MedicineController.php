@@ -40,7 +40,7 @@ class MedicineController extends Controller
 
     public function edit(Medicine $medicine)
     {
-        return view('hospitals.medicines.edit', compact('medicine'));
+        return view('hospitals.medicines.create', compact('medicine'));
     }
 
     public function update(Request $request, Medicine $medicine)

@@ -12,14 +12,15 @@ class MedicalRecordController extends Controller
 
     public function index()
     {
+
         $records = MedicalRecord::with(['patient', 'doctor'])->latest()->paginate(10);
         return view('hospitals.medical_records.index', compact('records'));
     }
 
     public function create()
     {
-        $patients = Patient::all();
-        $doctors = Doctor::all();
+        $patients = Patient::orderBy('name')->get();
+        $doctors  = Doctor::orderBy('name')->get();
         return view('hospitals.medical_records.create', compact('patients', 'doctors'));
     }
 
@@ -47,8 +48,8 @@ class MedicalRecordController extends Controller
 
     public function edit(MedicalRecord $medicalRecord)
     {
-        $patients = Patient::all();
-        $doctors = Doctor::all();
+       $patients = Patient::orderBy('name')->get();
+        $doctors  = Doctor::orderBy('name')->get();
         return view('hospitals.medical_records.edit', compact('medicalRecord', 'patients', 'doctors'));
     }
 

@@ -49,7 +49,7 @@ class AppointmentController extends Controller
     {
         $patients = Patient::all();
         $doctors = Doctor::all();
-        return view('hospitals.appointments.edit', compact('appointment', 'patients', 'doctors'));
+        return view('hospitals.appointments.create', compact('appointment', 'patients', 'doctors'));
     }
 
     public function update(Request $request, Appointment $appointment)

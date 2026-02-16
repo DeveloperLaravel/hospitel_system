@@ -7,90 +7,153 @@
 
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
 
-    <!-- Navbar -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md transition-colors duration-500">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-bold text-blue-600 flex items-center gap-2 transition-transform duration-200 hover:scale-105 active:scale-95">
-                🏥 مستشفى الشروق
-            </h1>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50
+             dark:from-gray-900 dark:via-gray-900 dark:to-gray-800
+             font-sans text-gray-800 dark:text-gray-200">
+
+<!-- Navbar -->
+<nav class="backdrop-blur bg-white/80 dark:bg-gray-900/80 shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+        <h1 >
+                   <img src="{{ asset('images/2.png') }}" alt="" srcset=""class="text-lg md:text-2xl font-bold text-blue-600">
+ مستشفى الشروق
+        </h1>
 
 
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
+
+        <div class="text-center md:text-right">
+            <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                نظام إدارة
+                <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                    مستشفى الشروق
+                </span>
+            </h2>
+
+            <p class="mt-6 text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                منصة ذكية لإدارة المستشفيات تشمل المرضى والأطباء والمواعيد
+                والأشعة والتحاليل الطبية ولوحة تحكم متقدمة.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="/login"
+                   class="px-6 py-3 bg-blue-600 text-white rounded-xl shadow-lg hover:bg-blue-700 transition">
+                    دخول النظام
+                </a>
+
+                <a href="#features"
+                   class="px-6 py-3 border border-blue-500 text-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-800 transition">
+                    استكشف النظام
+                </a>
+            </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div class="hidden md:block">
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3"
+                 class="rounded-3xl shadow-2xl">
+        </div>
+    </div>
+</section>
 
-            <!-- النص -->
-            <div class="text-center md:text-right">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white leading-tight transition-colors duration-500">
-                    مرحباً بكم في
-                    <span class="text-blue-600 dark:text-blue-400">مستشفى الشروق</span>
-                </h2>
+<!-- Features -->
+<section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-                <p class="mt-6 text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed transition-colors duration-500">
-                    نقدم رعاية صحية متكاملة باستخدام أحدث التقنيات الطبية
-                    وبإشراف نخبة من الأطباء لضمان أفضل تجربة علاجية للمرضى على مدار الساعة.
+        <h2 class="text-3xl font-bold text-center mb-14">
+            مميزات النظام
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card -->
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">إدارة المرضى</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    تسجيل المرضى ومتابعة بياناتهم الطبية بسهولة.
                 </p>
-
-                <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#"
-                       class="px-6 py-3 bg-blue-600 text-white rounded-xl shadow-lg
-                              hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600
-                              transition transform duration-200
-                              active:scale-95 active:brightness-90">
-                        احجز موعد
-                    </a>
-
-                    <a href="/login"
-                       class="px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 rounded-xl
-                              hover:bg-blue-50 dark:hover:bg-gray-800
-                              transition transform duration-200
-                              active:scale-95 active:brightness-90">
-                        دخول النظام
-                    </a>
-                </div>
             </div>
 
-            <!-- الصورة -->
-            <div class="hidden md:block">
-                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3"
-                     class="rounded-2xl shadow-lg w-full h-auto transform transition-transform duration-300 hover:scale-105 active:scale-95"
-                     alt="hospital">
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">إدارة الأطباء</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    تنظيم التخصصات والجدولة والمعلومات الطبية.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">إدارة المواعيد</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    نظام حجز ومتابعة مواعيد المرضى.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">الأشعة والتحاليل</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    إدارة طلبات الأشعة والتحاليل الطبية.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">نظام صلاحيات</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    تحكم كامل في المستخدمين والأدوار.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white/80 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition">
+                <h3 class="font-bold text-lg text-blue-600 mb-2">تقارير وإحصائيات</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    لوحة تحكم تحليلية لإدارة المستشفى.
+                </p>
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Roles -->
+<section class="py-20 bg-white/70 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+        <h2 class="text-3xl font-bold text-center mb-12">
+            الصلاحيات داخل النظام
+        </h2>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+            <div class="p-6 bg-gradient-to-br from-blue-600 to-cyan-500 text-white rounded-2xl shadow text-center">
+                المدير
+            </div>
+
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow text-center">
+                الطبيب
+            </div>
+
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow text-center">
+                الممرض
+            </div>
+
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow text-center">
+                الاستقبال
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
-<footer class="bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 transition-colors duration-500 mt-16">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-
-        <!-- شعار ورسالة -->
-        <div>
-            <h2 class="text-2xl font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2 mb-4">
-                🏥 مستشفى الشروق
-            </h2>
-            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
-                تقديم رعاية صحية متكاملة وآمنة، مع أفضل الأطباء والمرافق الحديثة لخدمة مجتمعنا.
-            </p>
-        </div>
-
-        <!-- الروابط السريعة -->
-        <div>
-            <h3 class="font-semibold text-gray-700 dark:text-gray-200 mb-4">الروابط السريعة</h3>
-            <ul class="space-y-2 text-sm">
-                <li>
-                    <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
-                        الصفحة الرئيسية
-                    </a>
-                </li>
-                <li>
-                    <a href="#services" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
-
+<footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+        © {{ date('Y') }} مستشفى الشروق
+    </div>
+</footer>
 
 </body>
 </html>

@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
+
     public function index()
     {
+
         // عرض كل الأطباء مع القسم
         $doctors = Doctor::with('department')->latest()->paginate(10);
         return view('hospitals.doctors.index', compact('doctors'));
@@ -40,7 +43,7 @@ class DoctorController extends Controller
     public function edit(Doctor $doctor)
     {
         $departments = Department::all();
-        return view('hospitals.doctors.edit', compact('doctor', 'departments'));
+        return view('hospitals.doctors.create', compact('doctor', 'departments'));
     }
 
     public function update(Request $request, Doctor $doctor)

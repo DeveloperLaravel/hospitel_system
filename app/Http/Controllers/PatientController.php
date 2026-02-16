@@ -46,7 +46,7 @@ class PatientController extends Controller
 
     public function edit(Patient $patient)
     {
-        return view('hospitals.patients.edit', compact('patient'));
+        return view('hospitals.patients.create', compact('patient'));
     }
 
     public function update(Request $request, Patient $patient)
